@@ -1,0 +1,4 @@
+#Fri Nov 10 09:39:38 GMT 2017
+base.0=/Users/marekdano/Projects/manager/android/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main
+renamed.0=classes.dex
+file.0=/Users/marekdano/Projects/manager/android/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex

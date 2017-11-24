@@ -8,6 +8,12 @@ class LoginForm extends Component {
 		password: ''
 	};
 
+	onButtonPress() {
+		const { email, password } = this.state;
+
+		//handle sign in a user with email and password
+	}
+
 	render() {
 		return (
 			<Card>
@@ -31,7 +37,7 @@ class LoginForm extends Component {
 				</CardSection>
 
 				<CardSection>
-					<Button>
+					<Button onPress={this.onButtonPress.bind(this)}>
 						Log in
 					</Button>
 				</CardSection>

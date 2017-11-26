@@ -1,5 +1,6 @@
 import {
-	EMPLOYEE_UPDATE
+	EMPLOYEE_UPDATE,
+	EMPLOYEE_CREATE
 } from './types';
 
 export const employeeUpdate = ({ prop, value }) => {
@@ -11,5 +12,11 @@ export const employeeUpdate = ({ prop, value }) => {
 
 export const employeeCreate = ({ name, phone, shift }) => {
 	console.log(name, phone, shift);
+
+	// make a call to web API
+	return (dispatch) => {
+		dispatch({ type: EMPLOYEE_CREATE });
+		Actions.employeeList({ type: 'reset' });
+	};
 };
 

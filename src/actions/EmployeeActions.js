@@ -22,11 +22,13 @@ export const employeeCreate = ({ name, phone, shift }) => {
 };
 
 export const employeesFetch = () => {
+	console.log("employeeFetch");
+	
 	return (dispatch) => {
 		// make request to web API getting the list of employees
 
-		// inside the response callback
-		//dispatch({ type: EMPLOYEE_FETCH_SUCCESS, payload: __value__ });
+		// inside the response callback place following
+		// dispatch({ type: EMPLOYEES_FETCH_SUCCESS });
 	};
 };
 

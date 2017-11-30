@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
-import {  } from 'react-native';
+import { connect } from 'react-native';
+import { emailChanged } from '../actions';
 import { Button, Card, CardSection, Input } from './common';
 
 class LoginForm extends Component {
-	state = { 
-		email: '',
-		password: ''
-	};
+	// state = { 
+	// 	email: '',
+	// 	password: ''
+	// };
 
-	onButtonPress() {
-		const { email, password } = this.state;
+	// onButtonPress() {
+	// 	const { email, password } = this.state;
 
-		//handle sign in a user with email and password
+	// 	//handle sign in a user with email and password
+	// }
+
+	onEmailChange(text) {
+		this.props.emailChanged(text)
 	}
 
 	render() {
@@ -22,7 +27,7 @@ class LoginForm extends Component {
 						placeholder="user@gmail.com"
 						label="Email"
 						value={this.state.email}
-						onChangeText={text => this.setState({ email })}
+						onChangeText={this.onEmailChange.bind(this)}
 					/>
 				</CardSection>
 
@@ -46,4 +51,4 @@ class LoginForm extends Component {
 	}
 }
 
-export default LoginForm;
+export default connect(null, { emailChanged })(LoginForm);

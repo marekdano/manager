@@ -28,7 +28,7 @@ export const employeesFetch = () => {
 		// make request to web API getting the list of employees
 
 		// inside the response callback place following
-		// dispatch({ type: EMPLOYEES_FETCH_SUCCESS });
+		dispatch({ type: EMPLOYEES_FETCH_SUCCESS });
 	};
 };
 

@@ -16,5 +16,11 @@ export const passwordChanged = (text) => {
 	return {
 		type: PASSWORD_CHANGED,
 		payload: text
-	}
-}
+	};
+};
+
+export const loginUser = ({ email, password }) => {
+	return (dispatch) => {
+		// call web API to log in an user
+	};
+};

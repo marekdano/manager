@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-native';
+import { connect } from 'react-redux';
 import { emailChanged, passwordChanged } from '../actions';
 import { Button, Card, CardSection, Input } from './common';
 

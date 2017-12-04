@@ -22,5 +22,8 @@ export const passwordChanged = (text) => {
 export const loginUser = ({ email, password }) => {
 	return (dispatch) => {
 		// call web API to log in an user
+
+		// when the call is successfull dispatch action
+		// dispatch({ type: 'LOGIN_USER_SUCCESS', payload: user })
 	};
 };

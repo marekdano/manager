@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Text, ListView } from 'react-native';
 import { employeesFetch } from '../actions';
+import { EmployeeListItem } from './EmployeeListItem';
 
 class EmployeeList extends Component {
 	componentWillMount() {
@@ -25,6 +26,10 @@ class EmployeeList extends Component {
 		this.dataSource = ds.cloneWithRows(this.props.employees);
 	}
 
+	renderRow(employee) {
+		return <EmployeeListItem employee={employee} />;
+	}
+
 	render() {
 		return (
 			<View>
@@ -35,6 +40,11 @@ class EmployeeList extends Component {
 				<Text>Employee</Text>
 				<Text>Employee</Text>
 			</View>
+
+			// <ListView
+			// 	dataSource={this.dataSource}
+			// 	renderRow={this.renderRow}
+			// />
 		);
 	}
 }

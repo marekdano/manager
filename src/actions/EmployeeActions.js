@@ -1,7 +1,8 @@
 import {
 	EMPLOYEE_UPDATE,
 	EMPLOYEE_CREATE,
-	EMPLOYEES_FETCH_SUCCESS
+	EMPLOYEES_FETCH_SUCCESS,
+	EMPLOYEE_SAVE_SUCCESS
 } from './types';
 
 export const employeeUpdate = ({ prop, value }) => {
@@ -35,7 +36,10 @@ export const employeesFetch = () => {
 export const employeeSave = ({ name, phone, shift, uid }) => {
 	// const { currentUser } = firebase.auth();
 
-	return () => {
+	return (dispatch) => {
 		// make request to web API to save an employee
+		
+		dispatch({ type: EMPLOYEE_SAVE_SUCCESS })
+		Action.employeeList({ type: 'reset' });
 	}
 }

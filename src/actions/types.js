@@ -3,3 +3,4 @@ export const PASSWORD_CHANGED = 'password_changed';
 export const EMPLOYEE_UPDATE = 'employee_update';
 export const EMPLOYEE_CREATE = 'employee_create';
 export const EMPLOYEES_FETCH_SUCCESS = 'employees_fetch_success';
+export const EMPLOYEES_SAVE_SUCCESS = 'employees_save_success';

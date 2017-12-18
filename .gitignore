@@ -2,3 +2,5 @@ node_modules/
 .expo/
 npm-debug.*
 build
+
+package-lock.json

@@ -10,6 +10,14 @@ import Router from "./Router";
 export default class App extends Component {
   componentWillMount() {
     // init firebase settings
+    firebase.initializeApp({
+      apiKey: "",
+      authDomain: "manager-94118.firebaseapp.com",
+      databaseURL: "https://manager-94118.firebaseio.com",
+      projectId: "manager-94118",
+      storageBucket: "manager-94118.appspot.com",
+      messagingSenderId: "776157936561"
+    });
   }
 
   render() {

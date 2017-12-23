@@ -1,6 +1,7 @@
 node_modules/
 .expo/
 npm-debug.*
-build
+**/build/
 
+config.js
 package-lock.json

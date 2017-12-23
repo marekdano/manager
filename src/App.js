@@ -6,12 +6,13 @@ import ReduxThunk from "redux-thunk";
 import firebase from "firebase";
 import reducers from "./reducers";
 import Router from "./Router";
+import config from "../config";
 
 export default class App extends Component {
   componentWillMount() {
     // init firebase settings
     firebase.initializeApp({
-      apiKey: "",
+      apiKey: config.FIREBASE_API,
       authDomain: "manager-94118.firebaseapp.com",
       databaseURL: "https://manager-94118.firebaseio.com",
       projectId: "manager-94118",

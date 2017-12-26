@@ -1,7 +1,12 @@
 export * from "./EmployeeActions";
 import firebase from "firebase";
 
-import { EMAIL_CHANGED, PASSWORD_CHANGED, LOGIN_USER_SUCCESS } from "./types";
+import {
+  EMAIL_CHANGED,
+  PASSWORD_CHANGED,
+  LOGIN_USER_SUCCESS,
+  LOGIN_USER_FAIL
+} from "./types";
 
 export const emailChanged = text => {
   return {
@@ -19,15 +24,29 @@ export const passwordChanged = text => {
 
 export const loginUser = ({ email, password }) => {
   return dispatch => {
-    // call web API to log in an user
-
-    // when the call is successfull dispatch action
-    // dispatch({ type: 'LOGIN_USER_SUCCESS', payload: user })
+    // call web API to log in an user and
+    // when the call is successful dispatch action
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .then(user => {
-        dispatch({ type: LOGIN_USER_SUCCESS, payload: user });
+      .then(user => loginUserSuccess(dispatch, user))
+      .catch(() => {
+        firebase
+          .auth()
+          .createUserWithEmailAndPassword(email, password)
+          .then(user => loginUserSuccess(dispatch, user))
+          .catch(() => loginUserFail(dispatch));
       });
   };
+};
+
+const loginUserFail = dispatch => {
+  dispatch({ type: LOGIN_USER_FAIL });
+};
+
+const loginUserSuccess = (dispatch, user) => {
+  dispatch({
+    tyoe: LOGIN_USER_SUCCESS,
+    payload: user
+  });
 };

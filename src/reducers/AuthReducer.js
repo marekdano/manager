@@ -11,7 +11,7 @@ const INITIAL_STATE = {
   password: "",
   user: null,
   error: "",
-  loading
+  loading: false
 };
 
 export default (state = INITIAL_STATE, action) => {

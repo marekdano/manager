@@ -4,6 +4,8 @@ import {
   EMPLOYEES_FETCH_SUCCESS,
   EMPLOYEE_SAVE_SUCCESS
 } from "./types";
+import firebase from "firebase";
+import { Actions } from "react-native-router-flux";
 
 export const employeeUpdate = ({ prop, value }) => {
   return {
@@ -14,11 +16,18 @@ export const employeeUpdate = ({ prop, value }) => {
 
 export const employeeCreate = ({ name, phone, shift }) => {
   console.log("employeeCreate");
+  const { currentUser } = firebase.auth();
 
   // make a call to web API
   return dispatch => {
-    dispatch({ type: EMPLOYEE_CREATE });
-    Actions.employeeList({ type: "reset" });
+    firebase
+      .database()
+      .ref(`/users/${currentUser.uid}/employees`)
+      .push({ name, phone, shift })
+      .then(() => {
+        dispatch({ type: EMPLOYEE_CREATE });
+        Actions.employeeList({ type: "reset" });
+      });
   };
 };
 

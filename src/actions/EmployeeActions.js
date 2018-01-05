@@ -33,12 +33,16 @@ export const employeeCreate = ({ name, phone, shift }) => {
 
 export const employeesFetch = () => {
   console.log("employeeFetch");
+  const { currentUser } = firebase.auth();
 
   return dispatch => {
     // make request to web API getting the list of employees
-
-    // inside the response callback place following
-    dispatch({ type: EMPLOYEES_FETCH_SUCCESS });
+    firebase
+      .database()
+      .ref(`/users/${currentUser.uid}/employees`)
+      .on("value", snapshot => {
+        dispatch({ type: EMPLOYEES_FETCH_SUCCESS, payload: snapshot.val() });
+      });
   };
 };
 

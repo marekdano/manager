@@ -8,14 +8,14 @@ class EmployeeList extends Component {
   componentWillMount() {
     this.props.employeesFetch();
 
-    //this.createDataSource(this.props)
+    this.createDataSource(this.props);
   }
 
   componentWillReceiveProps(nextProps) {
     // nextProps are the next set of props that this component
     // will be rendered with
     // this.props is still the old set of props
-    //this.createDataSource(nextProps);
+    this.createDataSource(nextProps);
   }
 
   createDataSource({ employees }) {
@@ -23,7 +23,7 @@ class EmployeeList extends Component {
       rowHasChanged: (r1, r2) => r1 !== r2
     });
 
-    this.dataSource = ds.cloneWithRows(this.props.employees);
+    this.dataSource = ds.cloneWithRows(employees);
   }
 
   renderRow(employee) {

@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { ListView } from "react-native";
 import { employeesFetch } from "../actions";
-import { EmployeeListItem } from "./EmployeeListItem";
+import EmployeeListItem from "./EmployeeListItem";
 
 class EmployeeList extends Component {
   componentWillMount() {
@@ -32,9 +32,14 @@ class EmployeeList extends Component {
   }
 
   render() {
-    console.log(this.props);
-
-    return <ListView dataSource={this.dataSource} renderRow={this.renderRow} />;
+    //console.log(this.props);
+    return (
+      <ListView
+        enableEmptySections
+        dataSource={this.dataSource}
+        renderRow={this.renderRow}
+      />
+    );
   }
 }
 

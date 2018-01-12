@@ -1,7 +1,7 @@
 import _ from "lodash";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { View, Text, ListView } from "react-native";
+import { ListView } from "react-native";
 import { employeesFetch } from "../actions";
 import { EmployeeListItem } from "./EmployeeListItem";
 
@@ -34,21 +34,7 @@ class EmployeeList extends Component {
   render() {
     console.log(this.props);
 
-    return (
-      <View>
-        <Text>Employee</Text>
-        <Text>Employee</Text>
-        <Text>Employee</Text>
-        <Text>Employee</Text>
-        <Text>Employee</Text>
-        <Text>Employee</Text>
-      </View>
-
-      // <ListView
-      // 	dataSource={this.dataSource}
-      // 	renderRow={this.renderRow}
-      // />
-    );
+    return <ListView dataSource={this.dataSource} renderRow={this.renderRow} />;
   }
 }
 

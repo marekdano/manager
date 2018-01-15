@@ -26,7 +26,8 @@ export const employeeCreate = ({ name, phone, shift }) => {
       .push({ name, phone, shift })
       .then(() => {
         dispatch({ type: EMPLOYEE_CREATE });
-        Actions.employeeList({ type: "reset" });
+        //Actions.employeeList({ type: "reset" });
+        Actions.pop();
       });
   };
 };
@@ -47,12 +48,17 @@ export const employeesFetch = () => {
 };
 
 export const employeeSave = ({ name, phone, shift, uid }) => {
-  // const { currentUser } = firebase.auth();
+  const { currentUser } = firebase.auth();
 
   return dispatch => {
     // make request to web API to save an employee
-
-    dispatch({ type: EMPLOYEE_SAVE_SUCCESS });
-    Action.employeeList({ type: "reset" });
+    firebase
+      .database()
+      .ref(`/users/${currentUser.uid}/employees/${uid}`)
+      .set({ name, phone, shift })
+      .then(() => {
+        dispatch({ type: EMPLOYEE_SAVE_SUCCESS });
+        Actions.employeeList({ type: "reset" });
+      });
   };
 };

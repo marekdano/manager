@@ -58,7 +58,8 @@ export const employeeSave = ({ name, phone, shift, uid }) => {
       .set({ name, phone, shift })
       .then(() => {
         dispatch({ type: EMPLOYEE_SAVE_SUCCESS });
-        Actions.employeeList({ type: "reset" });
+        //Actions.employeeList({ type: "reset" });
+        Actions.pop();
       });
   };
 };

@@ -19,8 +19,8 @@ const Confirm = ({ children, visible, onAccept, onDecline }) => {
         </CardSection>
 
         <CardSection>
-          <Button onPress={onAccept}>Yes</Button>
-          <Button onPress={onDecline}>No</Button>
+          <Button onPressProp={onAccept}>Yes</Button>
+          <Button onPressProp={onDecline}>No</Button>
         </CardSection>
       </View>
     </Modal>
@@ -34,7 +34,8 @@ const styles = {
   textStyle: {
     flex: 1,
     fontSize: 18,
-    textAlign: 40
+    textAlign: "center",
+    lineHeight: 40
   },
   containerStyle: {
     backgroundColor: "rgba(0, 0, 0, 0.75)",
